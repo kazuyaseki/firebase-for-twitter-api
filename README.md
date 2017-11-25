@@ -10,6 +10,11 @@ Tool to enable easy use of Twitter API from Firebase Cloud Function
 
 ### Deploy functions
 * `git clone https://github.com/kazuyaseki/firebase-for-twitter-api`
+* `cd firebase-for-twitter-api/functions`
+* `npm install` or `yarn install`
+* modify setting files
+  * set your project name to `.firebaserc` 
+  * set your `consumer_key` and `consumer_secret` of Twitter API inside functions/index.js 
 * `firebase deploy --only functions`
 
 ### Add case
