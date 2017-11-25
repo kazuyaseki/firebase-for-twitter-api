@@ -22,21 +22,27 @@ const callApi = (request, response, url) => {
 
 // Doc: https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-home_timeline
 exports.timeline = functions.https.onRequest((request, response) => {
-  cors((request, response) => {
+  cors(request, response, () => {
     callApi(request, response, 'statuses/home_timeline');
   });
 });
 
 // Doc: https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-favorites-list
 exports.like = functions.https.onRequest((request, response) => {
-  cors((request, response) => {
+  cors(request, response, () => {
     callApi(request, response, 'favorites/list');
   });
 });
 
 //Doc: https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-retweets_of_me
 exports.ownTweets = functions.https.onRequest((request, response) => {
-  cors((request, response) => {
+  cors(request, response, () => {
+    callApi(request, response, 'statuses/retweets_of_me');
+  });
+});
+
+exports.retweets = functions.https.onRequest((request, response) => {
+  cors(request, response, () => {
     callApi(request, response, 'statuses/retweets_of_me');
   });
 });
