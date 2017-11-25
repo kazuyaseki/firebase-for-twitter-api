@@ -13,7 +13,7 @@ const getTwitterClient = (key, secret) => {
 
 const callApi = (request, response, url) => {
   let client = getTwitterClient(request.query.key, request.query.secret);  
-  client.get(url, request.query.options, function(error, tweets, res) {
+  client.get(url, request.query.options|{}, function(error, tweets, res) {
     if (!error) {
       response.status(200).send(tweets);
     }
